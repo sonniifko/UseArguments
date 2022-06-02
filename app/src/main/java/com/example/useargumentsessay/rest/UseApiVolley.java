@@ -12,9 +12,12 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.useargumentsessay.Fragment.BookFragment;
 import com.example.useargumentsessay.MainActivity;
+import com.example.useargumentsessay.domain.Argument;
 import com.example.useargumentsessay.domain.Book;
 import com.example.useargumentsessay.domain.Theme;
+import com.example.useargumentsessay.domain.mapper.ArgumentMapper;
 import com.example.useargumentsessay.domain.mapper.BookMapper;
 import com.example.useargumentsessay.domain.mapper.ThemeMapper;
 import com.example.useargumentsessay.nodb.NoDb;
@@ -44,6 +47,51 @@ public class UseApiVolley implements UseApi{
     }
 
     @Override
+    public void fillArgument() {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+
+        String url = BASE_URL + "/argument";
+
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        NoDb.ARGUMENT_LIST.clear();
+
+                        try {
+
+                            for (int i = 0; i < response.length(); i++) {
+
+                                JSONObject jsonObject = response.getJSONObject(i);
+
+                                Argument argument = ArgumentMapper.argumentFromJson(jsonObject);
+
+//                                Log.e("mapper", argument.toString() + " ");
+
+                                NoDb.ARGUMENT_LIST.add(argument);
+                            }
+
+                            Log.d(API_TEST, NoDb.ARGUMENT_LIST.toString());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }
+                    }
+                },
+
+                errorListener
+        );
+
+        requestQueue.add(arrayRequest);
+
+    }
+
+    @Override
     public void fillBook() {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
@@ -67,6 +115,8 @@ public class UseApiVolley implements UseApi{
                                 JSONObject jsonObject = response.getJSONObject(i);
 
                                 Book book = BookMapper.bookFromJson(jsonObject);
+
+                                Log.e("mapper", book.toString() + " ");
 
                                 NoDb.BOOK_LIST.add(book);
                             }
@@ -191,6 +241,41 @@ public class UseApiVolley implements UseApi{
                 Map<String, String> params = new HashMap<>();
 
                 params.put("nameTheme", theme.getThemeName());
+
+                return params;
+            }
+        };
+
+        requestQueue.add(request);
+    }
+
+    @Override
+    public void addArgument(Argument argument) {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+
+        String url = BASE_URL + "/argument";
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        fillArgument();
+                        Log.d(API_TEST, response);
+                    }
+                },
+                errorListener
+        ) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+
+                params.put("content", argument.getContent());
+                params.put("nameBook", argument.getBook().getName());
 
                 return params;
             }

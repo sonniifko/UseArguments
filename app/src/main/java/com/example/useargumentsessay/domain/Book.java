@@ -5,6 +5,7 @@ import android.media.Image;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 public class Book implements Serializable {
 
@@ -31,10 +32,6 @@ public class Book implements Serializable {
         this.argumentList = argumentList;
     }
 
-    public static Bitmap getImage() {
-        return image;
-    }
-
     public int getId() {
         return id;
     }
@@ -59,5 +56,22 @@ public class Book implements Serializable {
                 ", theme=" + theme +
                 ", argument=" + argumentList +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id && Objects.equals(name, book.name) && Objects.equals(theme, book.theme) && Objects.equals(argumentList, book.argumentList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, theme, argumentList);
+    }
+
+    public void setArgumentList(List<Argument> argumentList) {
+        this.argumentList = argumentList;
     }
 }

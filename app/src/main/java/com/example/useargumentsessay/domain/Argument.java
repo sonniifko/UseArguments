@@ -14,7 +14,7 @@ public class Argument {
         this.book = book;
     }
 
-    public Argument(String content) {
+    public Argument(String content, Theme selectedItem, Book item) {
         this.content = content;
         this.book = book;
 

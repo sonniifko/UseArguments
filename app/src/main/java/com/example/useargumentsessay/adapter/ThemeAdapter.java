@@ -1,14 +1,17 @@
 package com.example.useargumentsessay.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.useargumentsessay.Fragment.BookFragment;
 import com.example.useargumentsessay.R;
 import com.example.useargumentsessay.domain.Book;
 import com.example.useargumentsessay.domain.Theme;
@@ -39,7 +42,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvTheme = itemView.findViewById(R.id.tv_theme_name);
+            tvTheme = itemView.findViewById(R.id.tv_theme_name1);
         }
     }
 
@@ -60,24 +63,24 @@ public class ThemeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         ((MyHolder)holder).tvTheme.setText(theme.getThemeName());
 
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                BookFragment bookFragment = new BookFragment();
-//
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable(BOOK_KEY, book);
-//
-//                bookFragment.setArguments(bundle);
-//
-//                ((AppCompatActivity)context).getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .add(R.id.fl_main, bookFragment)
-//                        .commit();
-//            }
-//        });
-//
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                BookFragment bookFragment = new BookFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(THEME_KEY, theme);
+
+                bookFragment.setArguments(bundle);
+
+                ((AppCompatActivity)context).getSupportFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.fl_main, bookFragment)
+                        .commit();
+            }
+        });
+
     }
 
     @Override

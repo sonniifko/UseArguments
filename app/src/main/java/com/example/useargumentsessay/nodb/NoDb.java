@@ -15,5 +15,4 @@ public class NoDb {
 
     public static final List<Argument> ARGUMENT_LIST = new ArrayList<>();
 
-
 }

@@ -1,11 +1,17 @@
 package com.example.useargumentsessay.domain.mapper;
 
+import android.util.Log;
+
 import com.example.useargumentsessay.domain.Argument;
 import com.example.useargumentsessay.domain.Book;
 import com.example.useargumentsessay.domain.Theme;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ArgumentMapper {
 
@@ -26,21 +32,34 @@ public class ArgumentMapper {
         return argument;
     }
 
-    public static Argument argumentFromBookJson(JSONObject jsonObject) {
+    public static List<Argument> argumentFromBookJson(JSONObject jsonObject, Book book) throws JSONException {
 
-        Argument argument = null;
+        List<Argument> arguments = new ArrayList<>();
+//
+//        try {
+//            argument = new Argument(
+//                    jsonObject.getJSONObject("argumentDtoList").getInt("id"),
+//                    jsonObject.getJSONObject("argumentDtoList").getString("content"),
+//                    BookMapper.bookFromJson(jsonObject)
+//                    );
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
-        try {
-            argument = new Argument(
-                    jsonObject.getJSONObject("argumentDto").getInt("id"),
-                    jsonObject.getJSONObject("argumentDto").getString("content"),
-                    null
-            );
-        } catch (JSONException e) {
-            e.printStackTrace();
+        JSONArray argumentDtoList = jsonObject.getJSONArray("argumentDtoList");
+
+        for (int i = 0; i < argumentDtoList.length(); ++i ) {
+
+            JSONObject jsonArgument = argumentDtoList.getJSONObject(i);
+
+            arguments.add(new Argument(
+                    jsonArgument.getInt("id"),
+                    jsonArgument.getString("content"),
+                    book
+            ));
         }
 
-        return argument;
+        return arguments;
 
     }
 }

@@ -1,5 +1,7 @@
 package com.example.useargumentsessay.domain.mapper;
 
+import android.util.Log;
+
 import com.example.useargumentsessay.domain.Argument;
 import com.example.useargumentsessay.domain.Book;
 import com.example.useargumentsessay.domain.Theme;
@@ -15,18 +17,25 @@ public class BookMapper {
 
         Book book = null;
 
+        Log.d("ppppp", "bookFromJson: " + jsonObject);
+
         try {
             book = new Book(
                     jsonObject.getInt("id"),
                     jsonObject.getString("name"),
                     ThemeMapper.themeFromBookJson(jsonObject),
-                    (List<Argument>) ArgumentMapper.argumentFromBookJson(jsonObject)
+                    null
             );
+
+            book.setArgumentList(ArgumentMapper.argumentFromBookJson(jsonObject, book));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         return book;
     }
+
+
 
 }
