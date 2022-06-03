@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ЕГЭ аргументы(сочинение)</string>
+    <string name="app_name">ЕГЭ аргументы</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
