@@ -1,15 +1,12 @@
-package com.example.useargumentsessay.Fragment;
+package com.example.useargumentsessay.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.useargumentsessay.R;
@@ -17,10 +14,8 @@ import com.example.useargumentsessay.adapter.BookAdapter;
 import com.example.useargumentsessay.domain.Book;
 import com.example.useargumentsessay.domain.Theme;
 import com.example.useargumentsessay.nodb.NoDb;
-import com.example.useargumentsessay.rest.UseApiVolley;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 public class BookFragment extends Fragment {

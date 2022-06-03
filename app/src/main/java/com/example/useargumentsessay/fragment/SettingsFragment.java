@@ -1,4 +1,4 @@
-package com.example.useargumentsessay.Fragment;
+package com.example.useargumentsessay.fragment;
 
 import android.os.Bundle;
 
@@ -16,7 +16,6 @@ import com.example.useargumentsessay.adapter.BookSpinnerAdapter;
 import com.example.useargumentsessay.adapter.ThemeSpinnerAdapter;
 import com.example.useargumentsessay.domain.Argument;
 import com.example.useargumentsessay.domain.Book;
-import com.example.useargumentsessay.domain.Theme;
 import com.example.useargumentsessay.nodb.NoDb;
 import com.example.useargumentsessay.rest.UseApiVolley;
 
@@ -31,6 +30,7 @@ public class SettingsFragment extends Fragment {
     private EditText etArgumentName;
 
     private AppCompatButton btnAdd;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,7 +62,6 @@ public class SettingsFragment extends Fragment {
                 new UseApiVolley(getContext()).addArgument(
                         new Argument(
                                 etArgumentName.getText().toString(),
-                                ((Theme) spTheme.getSelectedItem()),
                                 ((Book) spBook.getSelectedItem())
                         )
                 );
@@ -70,6 +69,7 @@ public class SettingsFragment extends Fragment {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .remove(SettingsFragment.this)
+                        .addToBackStack(null)
                         .commit();
             }
         });

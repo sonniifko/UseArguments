@@ -1,4 +1,4 @@
-package com.example.useargumentsessay.Fragment;
+package com.example.useargumentsessay.fragment;
 
 import static com.example.useargumentsessay.adapter.BookAdapter.THEME_KEY;
 
@@ -35,6 +35,8 @@ public class ArgumentFragment extends Fragment {
 
             View view = inflater.inflate(R.layout.fragment_argument, container, false);
 
+
+
             return view;
         }
 
@@ -53,7 +55,7 @@ public class ArgumentFragment extends Fragment {
 //            for (int i = 0; i < NoDb.ARGUMENT_LIST.size(); i++) {
 //
 //                if (NoDb.ARGUMENT_LIST.get(i).getBook().getName().equals(book.getName())) {
-//                    argumentArrayList.add(NoDb.ARGUMENT_LIST.get(i));
+//                    arguments.add(NoDb.ARGUMENT_LIST.get(i));
 //
 //                }
 //            }
@@ -64,7 +66,7 @@ public class ArgumentFragment extends Fragment {
 
             rvArgument.setAdapter(argumentAdapter);
 
-            Log.e("tvArg1",NoDb.ARGUMENT_LIST.toString());
+            Log.i("tvArg1",NoDb.ARGUMENT_LIST.toString());
 
         }
 }

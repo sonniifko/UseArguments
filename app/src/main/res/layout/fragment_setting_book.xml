@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fr_settings_book"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/maincolor"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_settings_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="Добавить книгу"
+            android:textColor="@color/detailscolor"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/add_book"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/add_book"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/detailscolor"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/theme_text_book"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_settings_book" />
+
+        <TextView
+            android:id="@+id/theme_text_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="Тема"
+            android:textColor="@color/detailscolor"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/theme_spinner_book"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_book"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/theme_spinner_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/theme_text_book"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/commit_book"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/corner_rounder"
+            android:text="commit"
+            android:textColor="@color/maincolor"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/theme_spinner_book"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

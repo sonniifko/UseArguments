@@ -1,11 +1,7 @@
 package com.example.useargumentsessay.adapter;
 
-import static com.example.useargumentsessay.nodb.NoDb.BOOK_LIST;
-
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.useargumentsessay.Fragment.ArgumentFragment;
-import com.example.useargumentsessay.Fragment.BookFragment;
+import com.example.useargumentsessay.fragment.ArgumentFragment;
 import com.example.useargumentsessay.R;
 import com.example.useargumentsessay.domain.Book;
-import com.example.useargumentsessay.domain.Theme;
-import com.example.useargumentsessay.nodb.NoDb;
 
 import java.util.List;
 
@@ -47,7 +40,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyHolderBook>{
         public MyHolderBook(@NonNull View itemView) {
             super(itemView);
 
-            tvBook = itemView.findViewById(R.id.tv_book_name1);
+            tvBook = itemView.findViewById(R.id.tv_book_name);
 
         }
     }

@@ -11,9 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.useargumentsessay.Fragment.BookFragment;
+import com.example.useargumentsessay.fragment.BookFragment;
 import com.example.useargumentsessay.R;
-import com.example.useargumentsessay.domain.Book;
 import com.example.useargumentsessay.domain.Theme;
 import com.example.useargumentsessay.nodb.NoDb;
 
@@ -77,6 +76,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((AppCompatActivity)context).getSupportFragmentManager()
                         .beginTransaction()
                         .add(R.id.fl_main, bookFragment)
+                        .addToBackStack(null)
                         .commit();
             }
         });

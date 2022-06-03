@@ -12,7 +12,6 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.useargumentsessay.Fragment.BookFragment;
 import com.example.useargumentsessay.MainActivity;
 import com.example.useargumentsessay.domain.Argument;
 import com.example.useargumentsessay.domain.Book;
@@ -35,7 +34,7 @@ public class UseApiVolley implements UseApi{
 
     private final Context context;
 
-    public static final String BASE_URL = "http://192.168.1.136:8081";
+    public static final String BASE_URL = "http://192.168.1.101:8081";
 
     private Response.ErrorListener errorListener;
 
@@ -71,7 +70,7 @@ public class UseApiVolley implements UseApi{
 
                                 Argument argument = ArgumentMapper.argumentFromJson(jsonObject);
 
-//                                Log.e("mapper", argument.toString() + " ");
+                                Log.i("mapper", argument.toString() + " ");
 
                                 NoDb.ARGUMENT_LIST.add(argument);
                             }
@@ -274,8 +273,11 @@ public class UseApiVolley implements UseApi{
 
                 Map<String, String> params = new HashMap<>();
 
+                Log.i("MY_TAG", argument.getBook().toString());
+
                 params.put("content", argument.getContent());
-                params.put("nameBook", argument.getBook().getName());
+                params.put("bookId", argument.getBook().getId() + "");
+
 
                 return params;
             }

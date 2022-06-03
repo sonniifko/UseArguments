@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <TextView
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tv_spinner_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/maincolor"
+        android:gravity="center"
+        android:padding="12dp"
+        android:textColor="@color/detailscolor"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        tools:ignore="MissingConstraints" />

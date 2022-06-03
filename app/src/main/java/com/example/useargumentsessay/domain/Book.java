@@ -32,6 +32,11 @@ public class Book implements Serializable {
         this.argumentList = argumentList;
     }
 
+    public Book(String name, Theme theme) {
+        this.name = name;
+        this.theme = theme;
+    }
+
     public int getId() {
         return id;
     }

@@ -6,6 +6,8 @@ public class Argument {
 
     private String content;
 
+
+
     public Book book;
 
     public Argument(int id, String content, Book book) {
@@ -14,10 +16,9 @@ public class Argument {
         this.book = book;
     }
 
-    public Argument(String content, Theme selectedItem, Book item) {
+    public Argument(String content,  Book book) {
         this.content = content;
         this.book = book;
-
     }
 
     public int getId() {

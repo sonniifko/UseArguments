@@ -6,28 +6,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.useargumentsessay.Fragment.SettingsFragment;
+import com.example.useargumentsessay.fragment.SettingBook;
+import com.example.useargumentsessay.fragment.SettingsFragment;
 import com.example.useargumentsessay.adapter.ThemeAdapter;
-import com.example.useargumentsessay.domain.Book;
 import com.example.useargumentsessay.domain.Theme;
 import com.example.useargumentsessay.nodb.NoDb;
 import com.example.useargumentsessay.rest.UseApiVolley;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.security.ProviderInstaller;
 
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.net.ssl.SSLContext;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,40 +42,51 @@ public class MainActivity extends AppCompatActivity {
 
         search = findViewById(R.id.search);
 
-        search.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-                if(editable.toString().isEmpty()) {
-
-                    rvTheme.setAdapter(new ThemeAdapter(getApplicationContext(), themeList));
-                    themeAdapter.notifyDataSetChanged();
-                }
-
-            }
-        });
+//        search.addTextChangedListener(new TextWatcher() {
+//
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//                if(editable.toString().isEmpty()) {
+//
+//                    rvTheme.setAdapter(new ThemeAdapter(getApplicationContext(), themeList));
+//                    themeAdapter.notifyDataSetChanged();
+//                }
+//
+//            }
+//        });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                SettingsFragment settingsFragment = new SettingsFragment();
+                //тут закоменчено добавление аргументов
+
+//                SettingsFragment settingsFragment = new SettingsFragment();
+//
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .add(R.id.fl_main, settingsFragment)
+//                        .addToBackStack(null)
+//                        .commit();
+
+                SettingBook settingBook = new SettingBook();
 
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .add(R.id.fl_main, settingsFragment)
+                        .add(R.id.fl_main, settingBook)
+                        .addToBackStack(null)
                         .commit();
             }
         });
