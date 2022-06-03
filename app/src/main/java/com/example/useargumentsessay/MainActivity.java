@@ -2,16 +2,19 @@ package com.example.useargumentsessay;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.useargumentsessay.fragment.AddSmth;
 import com.example.useargumentsessay.fragment.SettingBook;
-import com.example.useargumentsessay.fragment.SettingsFragment;
 import com.example.useargumentsessay.adapter.ThemeAdapter;
 import com.example.useargumentsessay.domain.Theme;
 import com.example.useargumentsessay.nodb.NoDb;
@@ -31,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Theme> themeList;
 
-    private EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,52 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
         btnSettings = findViewById(R.id.btn_settings);
 
-        search = findViewById(R.id.search);
-
-//        search.addTextChangedListener(new TextWatcher() {
-//
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//
-//                if(editable.toString().isEmpty()) {
-//
-//                    rvTheme.setAdapter(new ThemeAdapter(getApplicationContext(), themeList));
-//                    themeAdapter.notifyDataSetChanged();
-//                }
-//
-//            }
-//        });
-
         btnSettings.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                //тут закоменчено добавление аргументов
-
-//                SettingsFragment settingsFragment = new SettingsFragment();
-//
-//                getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .add(R.id.fl_main, settingsFragment)
-//                        .addToBackStack(null)
-//                        .commit();
-
-                SettingBook settingBook = new SettingBook();
+                AddSmth addSmth = new AddSmth();
 
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .add(R.id.fl_main, settingBook)
+                        .add(R.id.fl_main, addSmth)
                         .addToBackStack(null)
                         .commit();
             }
@@ -112,4 +78,13 @@ public class MainActivity extends AppCompatActivity {
 
         themeAdapter.notifyDataSetChanged();
     }
+
+    public void setNewFragment(Fragment fragment) { //переклюявтель на другие фрагменты
+        FragmentTransaction ft = MainActivity.this.getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fl_main, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+
 }

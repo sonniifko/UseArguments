@@ -32,10 +32,7 @@ public class Theme implements Serializable {
 
     @Override
     public String toString() {
-        return "Theme{" +
-                "id=" + id +
-                ", themeName='" + themeName + '\'' +
-                '}';
+        return themeName ;
     }
 
     @Override

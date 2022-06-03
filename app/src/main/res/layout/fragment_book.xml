@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/maincolor"
+    android:clickable="true"
     android:id="@+id/book_fr"
     tools:context=".MainActivity"
     tools:ignore="MissingConstraints">
@@ -15,6 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="top"
+        android:text="Книги"
+        android:textSize="20sp"
+        android:textColor="@color/maincolor"
         android:background="@drawable/corner_rounder_2"
         android:gravity="center|center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +34,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_book"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:layout_marginLeft="15dp"

@@ -69,7 +69,6 @@ public class SettingsFragment extends Fragment {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .remove(SettingsFragment.this)
-                        .addToBackStack(null)
                         .commit();
             }
         });

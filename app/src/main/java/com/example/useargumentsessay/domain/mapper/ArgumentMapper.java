@@ -1,10 +1,7 @@
 package com.example.useargumentsessay.domain.mapper;
 
-import android.util.Log;
-
 import com.example.useargumentsessay.domain.Argument;
 import com.example.useargumentsessay.domain.Book;
-import com.example.useargumentsessay.domain.Theme;
 
 import org.json.JSONArray;
 import org.json.JSONException;

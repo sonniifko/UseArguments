@@ -52,7 +52,6 @@ public class SettingBook extends Fragment {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .remove(SettingBook.this)
-                        .addToBackStack(null)
                         .commit();
             }
         });

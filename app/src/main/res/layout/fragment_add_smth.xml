@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_smth"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/maincolor"
+    android:focusable="true"
+    android:clickable="true"
+    tools:context=".fragment.AddSmth">
+
+    <TextView
+        android:id="@+id/text_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Добавить"
+        android:textColor="@color/detailscolor"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_fr_add_book"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:stateListAnimator="@null"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/corner_rounder"
+        android:text="книга"
+        android:textColor="@color/maincolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_settings" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_fr_add_arg"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="100dp"
+        android:stateListAnimator="@null"
+        android:background="@drawable/corner_rounder"
+        android:text="аргумент"
+        android:textColor="@color/maincolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fr_add_book" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

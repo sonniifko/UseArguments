@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/argument_fr"
+    android:clickable="true"
+    android:focusable="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/maincolor"
     tools:ignore="MissingConstraints">
@@ -14,6 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="top"
+        android:text="Аргументы"
+        android:textColor="@color/maincolor"
+        android:textSize="20sp"
         android:background="@drawable/corner_rounder_2"
         android:gravity="center|center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"

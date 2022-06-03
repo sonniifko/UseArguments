@@ -70,7 +70,7 @@ public class UseApiVolley implements UseApi{
 
                                 Argument argument = ArgumentMapper.argumentFromJson(jsonObject);
 
-                                Log.i("mapper", argument.toString() + " ");
+                              //  Log.i("mapper", argument.toString() + " ");
 
                                 NoDb.ARGUMENT_LIST.add(argument);
                             }

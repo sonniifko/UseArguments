@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/maincolor"
+    android:background="@drawable/custom_argument"
+    android:layout_marginBottom="50dp"
+    android:layout_marginRight="20dp"
     tools:ignore="ExtraText">
 
     <TextView
@@ -13,12 +15,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:gravity="left"
+        android:layout_marginTop="10dp"
         android:text="Book"
+        android:paddingBottom="10dp"
         android:textColor="@color/detailscolor"
+        android:paddingRight="20dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

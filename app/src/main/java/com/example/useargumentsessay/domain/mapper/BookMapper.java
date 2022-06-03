@@ -17,7 +17,7 @@ public class BookMapper {
 
         Book book = null;
 
-        Log.d("ppppp", "bookFromJson: " + jsonObject);
+        Log.i("ppppp", "bookFromJson: " + jsonObject);
 
         try {
             book = new Book(
